@@ -1,0 +1,94 @@
+Part 1
+- created .github/workflows/android.yml
+    - sets up android and attempts to compile with Gradle
+
+Part 2
+  Part 2.1
+    - instructions
+        - Examine:
+            - SecondFragment.kt (lines 69–73)
+            - ThirdFragment.kt (lines 68–70)
+        - Answer the following reflection questions (not graded), but critical for understanding Android security.
+          Hint: It's good to 'assess' your understanding of this content
+            - What are the two types of Intents?
+                - 2F: Intent(Intent.ACTION_VIEW)
+                - 3F: Intent(activity, ProductScrollingActivity::class.java)
+            - Which type is generally more secure?
+                - explicit
+            - What type of Intent is used in SecondFragment.kt?
+                - implicit
+            - What type is used in ThirdFragment.kt?
+                - explicit
+            - Which Intent is considered the "proper" implementation?
+                - explicit
+            - What does "proper" even mean in the context of secure Android development?
+              Hint: Consider how attackers might take advantage of improperly scoped or overly permissive Intents.
+                - Least privillege required
+                    - scoped to specific app/class
+                - Deterministic - reduce unknown/inconsistent behavior
+        - Fix the insecure usage
+            - let's change 2F to explicit
+                - prev:
+                    -   var intent = Intent(Intent.ACTION_VIEW)
+                        intent.type = "text/giftcards_browse"
+                        intent.data = Uri.parse("https://appsec.moyix.net/api/index")
+                - curr: 
+                    -   var intent = Intent(activity, ProductScrollingActivity::class.java)
+
+Part 2.2
+    - instructions 
+        - Make the necessary changes to AndroidManifest.xml to prevent external apps from launching any Activities in your app.
+          Hint: Look at exported attributes and intent filters.
+    - prev: android:exported="true"
+    - curr:  android:exported="false"
+
+Part 3
+- instructions
+    - Your task is to secure all API communication by using HTTPS instead of HTTP.
+    - Update the following files:
+        SecondFragment.kt
+        ThirdFragment.kt
+        CardScrollingActivity.kt
+        ProductScrollingActivity.kt
+        UseCard.kt
+        GetCard.kt
+        CardRecyclerViewAdapter.kt
+        RecyclerViewAdapter.kt
+        Reporter.kt
+        strings.xml
+    - replace: "http:" -> "https:"
+    - wasn't sure where strings would be: find . -name "strings.xml" -> ./GiftcardSite/app/src/main/res/values/strings.xml
+
+Part 4
+- instructions
+    There is a vulnerability in the REST API that allows users to use gift cards that don’t belong to them.
+    Examine the following files:
+        UseCard.kt
+        CardInterface.kt
+    Hint: Think about how the application is telling the server which card to use. Could that data be manipulated?
+    Use tools like curl or Python’s requests to interact directly with the API.
+    **You are not required to fix this vulnerability.** As you dig deeper, you should start to understand:
+        Why this is happening
+        Why client-side code cannot fix it
+        What kind of backend validation is missing
+    Hint: It is a good thing to 'assess' your understanding of the role of client versus server side code in application development! 
+    We will be testing this understanding in the Assessment.
+
+Part 5
+- instructions
+    -   Remove any functionality that:
+            Collects metrics
+            Uses sensors
+            Requests unnecessary permissions
+        Focus on the following files:
+            AndroidManifest.xml
+            UserInfo.kt
+            CardScrollingActivity.kt
+            ProductScrollingActivity.kt
+        Hint: The only permissions this app should request are those strictly needed to buy, browse, and use gift cards.
+- AndroidManifest.xml
+- UserInfo.kt
+- CardScrollingActivity.kt
+- ProductScrollingActivity.kt
+
+
