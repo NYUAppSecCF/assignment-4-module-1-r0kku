@@ -1,0 +1,38 @@
+name: Android CI
+
+on:
+  push:
+    branches: 
+      - main
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: 'Manual'
+        required: false
+        default: 'Manual trigger'
+
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v2
+
+    - uses: actions/checkout@v4
+
+    - name: set up JDK 11
+      uses: actions/setup-java@v4
+      with:
+        java-version: '11'
+        distribution: 'temurin'
+        cache: gradle
+
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+
+    - name: Build with Gradle
+      run: ./gradlew build
