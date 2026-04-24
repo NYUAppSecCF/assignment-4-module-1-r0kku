@@ -1,22 +1,31 @@
 package com.example.giftcardsite.api.model
 
 import android.content.Intent
+// rmc8035 - part 5 - remove metrics, sensors, and unnecessary permissions
+/*
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.location.Location
 import android.location.LocationListener
+*/
 import android.util.Log
 import com.example.giftcardsite.ProductScrollingActivity
 import com.example.giftcardsite.api.service.CardInterface
-import com.example.giftcardsite.api.service.UserInfo
+// rmc8035 - part 5 - remove metrics, sensors, and unnecessary permissions
+// import com.example.giftcardsite.api.service.UserInfo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class Reporter(private val token: String) : LocationListener, SensorEventListener{
+// rmc8035 - part 5 - remove metrics, sensors, and unnecessary permissions
+// class Reporter(private val token: String) : LocationListener, SensorEventListener
+class Reporter(private val token: String) {
+    // rmc8035 - part 5 - remove metrics, sensors, and unnecessary permissions
+    //   this is now an empty method - I would normally just delete file
+    /*
     override fun onLocationChanged(location: Location) {
         var userInfoContainer = UserInfoContainer(location, null, token)
         var builder: Retrofit.Builder = Retrofit.Builder().baseUrl("https://appsec.moyix.net").addConverterFactory(
@@ -70,4 +79,5 @@ class Reporter(private val token: String) : LocationListener, SensorEventListene
     override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
         return
     }
+    */
 }
