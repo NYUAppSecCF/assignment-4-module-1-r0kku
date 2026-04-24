@@ -42,6 +42,7 @@ Part 2.2
     - prev: android:exported="true"
     - curr:  android:exported="false"
     - activities that have intent filters will be exported, so need to remove
+    - main activity must be exported
 
 Part 3
 - instructions
@@ -63,6 +64,7 @@ Part 3
         - in AndroidManifest.xml
             - prev: android:usesCleartextTraffic="true"
             - curr: android:usesCleartextTraffic="false"
+        
 
 Part 4
 - instructions
@@ -92,8 +94,19 @@ Part 5
             ProductScrollingActivity.kt
         Hint: The only permissions this app should request are those strictly needed to buy, browse, and use gift cards.
 - AndroidManifest.xml
+    - keep
+        <uses-permission android:name="android.permission.INTERNET" />
+    - remove
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 - UserInfo.kt
+    - note post /api/metrics but if I disable metrics and sensor code in the two activities below, will this still be called?
+    - reporter users, but maybe reporter itself isn't used
 - CardScrollingActivity.kt
+    - attempted to disable sensors and metrics
 - ProductScrollingActivity.kt
+    - attempted to disable sensors and metrics
 
 
