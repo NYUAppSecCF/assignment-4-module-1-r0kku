@@ -106,7 +106,9 @@ Part 5
     - reporter users, but maybe reporter itself isn't used
 - CardScrollingActivity.kt
     - attempted to disable sensors and metrics
+    - made more explicit by removing those imports and removing from class start
 - ProductScrollingActivity.kt
     - attempted to disable sensors and metrics
+    - made more explicit by removing those imports and removing from class start
 
 

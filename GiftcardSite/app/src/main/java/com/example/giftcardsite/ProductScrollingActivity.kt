@@ -4,6 +4,8 @@ import android.Manifest
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+// rmc8035 - part 5 - remove metrics, sensors, and unnecessary permissions
+/*
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -11,6 +13,7 @@ import android.hardware.SensorManager
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
+*/
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -23,14 +26,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.giftcardsite.api.model.*
 import com.example.giftcardsite.api.service.ProductInterface
-import com.example.giftcardsite.api.service.UserInfo
+// rmc8035 - part 5 - remove metrics, sensors, and unnecessary permissions
+// import com.example.giftcardsite.api.service.UserInfo
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ProductScrollingActivity : AppCompatActivity(), SensorEventListener, LocationListener {
+// rmc8035 - part 5 - remove metrics, sensors, and unnecessary permissions
+// class ProductScrollingActivity : AppCompatActivity(), SensorEventListener, LocationListener
+class ProductScrollingActivity : AppCompatActivity() {
     var loggedInUser: User? = null
 
     // rmc8035 - part 5 - remove metrics, sensors, and unnecessary permissions
