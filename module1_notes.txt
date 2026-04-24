@@ -41,6 +41,7 @@ Part 2.2
           Hint: Look at exported attributes and intent filters.
     - prev: android:exported="true"
     - curr:  android:exported="false"
+    - activities that have intent filters will be exported, so need to remove
 
 Part 3
 - instructions
@@ -58,6 +59,10 @@ Part 3
         strings.xml
     - replace: "http:" -> "https:"
     - wasn't sure where strings would be: find . -name "strings.xml" -> ./GiftcardSite/app/src/main/res/values/strings.xml
+    - I saw this previously but instructions said specifically to only change http so I did not alter before -> changing now
+        - in AndroidManifest.xml
+            - prev: android:usesCleartextTraffic="true"
+            - curr: android:usesCleartextTraffic="false"
 
 Part 4
 - instructions
